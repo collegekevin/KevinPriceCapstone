@@ -1,7 +1,8 @@
 body {
   margin-top: 80;
-  background-color: #f3f3f3;
-  background-image: url('https://images.unsplash.com/photo-1536420124392-79a70082fbe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+  background-color: #5abee2;
+  /* background-image: url('https://images.unsplash.com/photo-1536420124392-79a70082fbe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'); */
+  /* background-image: url('https://i.kym-cdn.com/photos/images/original/000/259/985/842.jpg'); */
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
@@ -41,13 +42,13 @@ p {
 }
 
 a {
-  color: #337152;
+  color: #26a8c8;
   text-decoration: none;
   font-weight: 400;
 }
 
 a:hover {
-  color: #86b59e;
+  color: #5abee2;
   text-decoration: none;
   cursor: pointer;
 }
@@ -81,19 +82,19 @@ a:hover {
 }
 
 .nav-link:hover {
-  color: #86b59e;
+  color: #5abee2;
   cursor: pointer;
 }
 
 
 .avatar {
-  width: 30px;
-  height: 30px;
+  width: 100px;
+  height: 100px;
   margin-top: 12px;
   margin-right: 0;
   border: 0;
   border-radius: 50%;
-  background-color: #86b59e;
+  background-color: #5abee2;
 }
 
 
@@ -154,7 +155,7 @@ a:hover {
 }
 
 .button:hover {
-  background-color: #337152;
+  background-color: #26a8c8;
   cursor: pointer;
 }
 
@@ -179,6 +180,7 @@ a:hover {
 
 .subheading {
   padding-top: 20px;
+  text-align: center;
 }
 
 /* CREATE USER CARD */
@@ -219,7 +221,7 @@ a:hover {
 .create-input-field:focus,
 .create-input-field:focus-visible,
 .create-input-field:focus-within {
-  border-color: #337152;
+  border-color: #26a8c8;
 }
 
 .back-link {
@@ -235,7 +237,7 @@ a:hover {
 }
 
 .edit-icon:hover {
-  color: #337152;
+  color: #26a8c8;
   font-size: 22px;
   cursor: pointer;
 }
@@ -247,7 +249,7 @@ a:hover {
 }
 
 .delete-icon:hover {
-  color: #337152;
+  color: #26a8c8;
   font-size: 22px;
   cursor: pointer;
 }

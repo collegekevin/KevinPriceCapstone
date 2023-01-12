@@ -74,7 +74,7 @@ function Login({ setIsLoggedIn }) {
                     </form>
                 </div>
                 {errors ? <div className="errors">{errors}</div> : null}
-                <p className="create-acc-link"> Need an account? <Link to="/CreateUser">Create one here!</Link></p>
+                <p className="create-acc-link"> Need an account? <Link to="/CreateUser">Sign up here!</Link></p>
             </div>
         </div>
     )

@@ -15,17 +15,19 @@ function NavBar({ user, setIsLoggedIn }) {
 
     return (
         <div className="navBar">
-            <img
-                className="avatar"
-                src={user.user_image}
-                alt={user.username}
-            />
             <Link
                 to="/"
                 onClick={handleLogout}
                 className="nav-link"
             > Log Out
             </Link>
+            <h3>{user.username}</h3>
+            <img
+                className="avatar"
+                src={user.user_image}
+                alt={user.username}
+            />
+
         </div>
     );
 }
