@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import CreatePost from "./CreatePost";
+import { Link } from "react-router-dom";
+import DisplayAds from "./DisplayAds";
 
 function Home({ user }) {
+
 
     return (
         <div className='home-page'>
@@ -12,7 +16,8 @@ function Home({ user }) {
             <br />
             <h3 className='subheading'> <em>(Provided I can get this to work)</em> </h3>
             {/* <p id="click-details">｛ <em>Which is questionable at this point</em> ｝</p> */}
-            {/* <NattyParks parks={parks} user={user}/> */}
+            <p> <Link to="/CreatePost">Create a Post</Link></p>
+            <DisplayAds />
         </div>
     );
 }
