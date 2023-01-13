@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#destroy"
 
+  get "/posts", to: "posts#index"
   post "/createpost", to: "posts#create"
 
   get "/ads", to: "ads#index"

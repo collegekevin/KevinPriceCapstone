@@ -8,8 +8,10 @@ function DisplayAds() {
     useEffect(() => {
         fetch("/ads")
             .then((resp) => resp.json())
-            .then(console.log(ads))
+            .then((ads) => setAds(ads))
     }, [])
+
+    console.log(ads)
 
     return (
         <div>
