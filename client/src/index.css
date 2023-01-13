@@ -216,6 +216,19 @@ a:hover {
   font-size: 12px;
 }
 
+.create-big-input-field {
+  width: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  border: 1px solid;
+  border-color: #dddddd;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
 .create-input-field:hover,
 .create-input-field:active,
 .create-input-field:focus,

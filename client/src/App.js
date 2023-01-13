@@ -5,6 +5,7 @@ import Login from './Login'
 import CreateUser from './CreateUser.js'
 import Home from './Home'
 import NavBar from "./NavBar";
+import CreatePost from "./CreatePost";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,8 +25,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/CreateUser" element={<CreateUser />} />
-        <Route path={`/users/${user.id}`} element={<Home user={user} isLoggedIn={isLoggedIn} />}
-        />
+        <Route path={`/users/${user.id}`} element={<Home user={user} isLoggedIn={isLoggedIn} />} />
+        <Route path="/CreatePost" element={<CreatePost user={user} />} />
       </Routes>
     </div>
   );

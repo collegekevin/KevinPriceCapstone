@@ -10,6 +10,7 @@ function CreateUser() {
     const [profileImg, setProfileImg] = useState("");
     const [bio, setBio] = useState("");
 
+    //UserId  
 
     const navigate = useNavigate()
 
@@ -73,8 +74,8 @@ function CreateUser() {
 
     return (
         <div>
-            <div className="create-user-card">
-                <div className="create-user-form">
+            <div className="create-post-card">
+                <div className="create-post-form">
                     <form onSubmit={handleSubmit}>
                         <input
                             className="create-input-field"

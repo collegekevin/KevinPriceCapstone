@@ -1,4 +1,4 @@
 class AdClick < ApplicationRecord
-  belongs_to :ad_id
-  belongs_to :user_id
+  belongs_to :ad
+  belongs_to :user
 end
