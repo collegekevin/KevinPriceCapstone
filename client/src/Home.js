@@ -19,8 +19,8 @@ function Home({ user }) {
             <h3 className='subheading'> <em>(Provided I can get this to work)</em> </h3>
             {/* <p id="click-details">｛ <em>Which is questionable at this point</em> ｝</p> */}
             <p> <Link to="/CreatePost">Create a Post</Link></p>
-            <DisplayPosts posts={posts} setPosts={setPosts} />
-            <DisplayAds />
+            <DisplayPosts posts={posts} setPosts={setPosts} user={user} />
+            <DisplayAds user={user} />
         </div>
     );
 }

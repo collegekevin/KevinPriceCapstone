@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CreatePost({ user }) {
 
@@ -64,6 +65,7 @@ function CreatePost({ user }) {
                 />
                 <button className="button" type="submit">Create Post</button>
             </form>
+            <p> <Link to="/Home">Back to Homepage</Link></p>
         </div>
     );
 }

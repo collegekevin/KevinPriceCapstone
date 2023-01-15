@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get "/ads", to: "ads#index"
 
+  post "/createadclick", to: "ad_clicks#create"
+
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
