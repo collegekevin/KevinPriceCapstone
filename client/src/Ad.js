@@ -28,7 +28,7 @@ function Ad({ ad, user }) {
             <h3>{ad.company}</h3>
             <p>{ad.ad_text}</p>
             <img src={ad.ad_image} alt={ad.company} />
-            <p class="zoom-box" onClick={handleAdClick(ad)}>Click here details</p>
+            <p class="zoom-box">Click the ad for details</p>
         </div>
     )
 }

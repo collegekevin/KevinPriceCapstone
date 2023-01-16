@@ -58,6 +58,7 @@ function CreatePost({ user }) {
                 <input
                     className="create-big-input-field"
                     name="caption"
+                    type="text"
                     value={caption}
                     placeholder="Comment on your photo"
                     onChange={handleCaptionChange}

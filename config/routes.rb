@@ -15,10 +15,13 @@ Rails.application.routes.draw do
   get "/posts", to: "posts#index"
   post "/createpost", to: "posts#create"
 
+  post "/createcomment", to: "comments#create"
+
+  post "/createlike", to: "likes#create"
+
   get "/ads", to: "ads#index"
 
   post "/createadclick", to: "ad_clicks#create"
-
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
