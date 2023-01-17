@@ -52,6 +52,7 @@ function Post({ post, user }) {
         fetch("/createcomment", configCommentObject)
             .then((resp) => resp.json())
             .then((createCommentReturn) => {
+                setCommentText('')
                 console.log(createCommentReturn)
             });
     }
@@ -72,11 +73,12 @@ function Post({ post, user }) {
     //     setLikes(likes);
     //   });
 
-    //I want to use the info from the fetch to post the username, not the user info passed down. I don't need that.
+    //So... in rails console. Post.user.username gives me what I want in line 81... 
+    //but it's not letting do post.user.username... how do I fix that?
 
     return (
         <div className="post-stlying">
-            <p>Post from {user.username}</p>
+            <p>Post from {post.username}</p>
             <img src={post.post_image} alt={"Pic issue"} />
             <p>{post.caption}</p>
             <span class="zoom-box" onClick={handleLike}>
@@ -94,7 +96,13 @@ function Post({ post, user }) {
                 />
                 <button onClick={handleAddComment}>Share your thoughts</button>
             </div>
+            <br></br>
+            <ul>
+                {post.comments.map(com => <li>{`${com.user} : ${com.comment_text}`}</li>)}
+            </ul>
         </div>
+        //On line 101. Comment.last.user.username gives me what I want in rails console, but
+        //com.user.username doesn't work there... but com.comment_text does...
     )
 }
 
