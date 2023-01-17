@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-        render json: Post.all, include: :comments, status: :ok
+        render json: Post.all, status: :ok
     end
 
     def create

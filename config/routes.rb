@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   #I'm going to have to update my routes at the end.
   get "/me", to: "users#show"
+  get "/users/:id", to: "users#show"
 
   post "/create", to: "sessions#create"
   post "/login", to: "sessions#login"

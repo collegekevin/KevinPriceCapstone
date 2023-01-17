@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Post({ post, user }) {
 
@@ -57,6 +58,11 @@ function Post({ post, user }) {
             });
     }
 
+    // function handleUserClick() {
+    //     console.log(post.user)
+    //     <Link to="/UserPage">{post.user.username}</Link>
+    // }
+
 
     // const likeObj = { likes: (post.likes += 1) };
     // const configObject = {
@@ -74,14 +80,16 @@ function Post({ post, user }) {
     //   });
 
     //So... in rails console. Post.user.username gives me what I want in line 81... 
-    //but it's not letting do post.user.username... how do I fix that?
+    //but it's not letting do post.user.username... 
+
 
     return (
         <div className="post-stlying">
-            <p>Post from {post.username}</p>
+            <p>Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
+            {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
             <img src={post.post_image} alt={"Pic issue"} />
             <p>{post.caption}</p>
-            <span class="zoom-box" onClick={handleLike}>
+            <span className="zoom-box" onClick={handleLike}>
                 🔥
             </span>
             <div>
@@ -90,7 +98,7 @@ function Post({ post, user }) {
                     name="commentText"
                     type="text"
                     value={commentText}
-                    placeholder="Comment the post"
+                    placeholder="Comment on this post"
                     onChange={handleCommentChange}
                     required
                 />
@@ -98,7 +106,7 @@ function Post({ post, user }) {
             </div>
             <br></br>
             <ul>
-                {post.comments.map(com => <li>{`${com.user} : ${com.comment_text}`}</li>)}
+                {post.comments.map(com => <li key={com.id}>{`${com.user} : ${com.comment_text}`}</li>)}
             </ul>
         </div>
         //On line 101. Comment.last.user.username gives me what I want in rails console, but
