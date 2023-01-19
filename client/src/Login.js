@@ -32,7 +32,8 @@ function Login({ setIsLoggedIn }) {
                         console.log(user)
                         setIsLoggedIn(true)
                         setUser(user)
-                        navigate(`/users/${user.id}`)
+                        //navigate(`/users/${user.id}`)
+                        navigate(`/home`)
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))

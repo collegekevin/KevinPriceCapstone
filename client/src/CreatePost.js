@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
+import Post from "./Post"
 
 function CreatePost({ user }) {
 
     const [postImage, setPostImage] = useState("");
     const [caption, setCaption] = useState("");
     const [posts, setPosts] = useState([])
+    const [createdPost, setCreatedPost] = useState({})
     // const [newPostArray, setNewPostArray] = useState([])
 
     function handlePostSubmit(e) {
@@ -30,8 +33,15 @@ function CreatePost({ user }) {
                 setPosts((posts) => [postReturn, ...posts]);
                 setPostImage("");
                 setCaption("");
-                console.log(postReturn)
+                setCreatedPost(postReturn)
+                // useNavigate(`/home`)
             });
+
+        return (
+            <div>
+                <Post key={createdPost.id} post={createdPost} user={user} />
+            </div>
+        )
     }
 
     function handleImageChange(e) {
@@ -57,6 +67,7 @@ function CreatePost({ user }) {
                 <input
                     className="create-big-input-field"
                     name="caption"
+                    type="text"
                     value={caption}
                     placeholder="Comment on your photo"
                     onChange={handleCaptionChange}
@@ -64,6 +75,7 @@ function CreatePost({ user }) {
                 />
                 <button className="button" type="submit">Create Post</button>
             </form>
+            <p> <Link to="/Home">Back to Homepage</Link></p>
         </div>
     );
 }

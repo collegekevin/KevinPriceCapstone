@@ -3,5 +3,10 @@ class Follow < ApplicationRecord
   belongs_to :follower, foreign_key: :follower_id, class_name: "User"
 
   # The user being followed
-  belongs_to :followed, foreign_key: :user_they_follow_id, class_name: "User"
+  belongs_to :user_they_follow, foreign_key: :user_they_follow_id, class_name: "User"
+
+  # I think I'd want a custom validater to make sure the person isn't alread following
+  # the person... but if I change the button on the front end that might be better. Both
+  # would also be good.
+
 end

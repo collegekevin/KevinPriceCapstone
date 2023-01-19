@@ -9,14 +9,14 @@ function NavBar({ user, setIsLoggedIn }) {
             method: "DELETE",
         })
         console.log("User logged out")
-        navigate("/");
+        navigate("/LoggedOut");
         setIsLoggedIn(false);
     }
 
     return (
         <div className="navBar">
             <Link
-                to="/"
+                to="LoggedOut"
                 onClick={handleLogout}
                 className="nav-link"
             > Log Out

@@ -68,7 +68,8 @@ function CreateUser() {
                 setUsername("");
                 setPassword("");
                 setProfileImg("");
-                navigate(`/users/${user.id}`)
+                // navigate(`/users/${user.id}`)
+                navigate(`/home`)
             });
     }
 

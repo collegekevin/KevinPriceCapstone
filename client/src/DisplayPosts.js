@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import Post from "./Post"
 
-function DisplayPosts({ posts, setPosts }) {
+function DisplayPosts({ user }) {
+
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {
         fetch("/posts")
@@ -9,11 +11,11 @@ function DisplayPosts({ posts, setPosts }) {
             .then((posts) => setPosts(posts))
     }, [])
 
-    console.log(posts)
+    //console.log(posts)
 
     return (
         <div>
-            {posts.map(post => <Post post={post} />)}
+            {posts.map(post => <Post key={post.id} post={post} user={user} />)}
         </div>
     )
 }
