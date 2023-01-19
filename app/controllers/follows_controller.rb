@@ -1,14 +1,14 @@
 class FollowsController < ApplicationController
 
     def create
-        folllow = Follow.create!(follow_params)
-        render json: follow
+        follow = Follow.create!(follow_params)
+        render json: follow, status: :ok
     end
 
     private
 
     def follow_params
-        params.permit(:follower, :user_they_follow)
+        params.permit(:follower_id, :user_they_follow_id)
     end
 
 end

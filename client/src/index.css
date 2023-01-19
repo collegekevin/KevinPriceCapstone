@@ -299,3 +299,11 @@ img {
   max-width: 200px;
   max-height: 150px;
 }
+
+.message-at-logout {
+  text-align: center;
+}
+
+.ad-at-logout {
+  text-align: center;
+}

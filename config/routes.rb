@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
 
   #I'm going to have to update my routes at the end.
-  get "/me", to: "users#show"
+  get "/me", to: "users#me"
   get "/users/:id", to: "users#show"
 
   post "/create", to: "sessions#create"
@@ -22,8 +22,10 @@ Rails.application.routes.draw do
   #this could just be /comments
   post "/createcomment", to: "comments#create"
 
-  #this could just be /likes
+  #this could just be /likes - wait.. there isn't a likes one.
   post "/createlike", to: "likes#create"
+
+  post "/createfollow", to: "follows#create"
 
   #this could just be /ads
   get "/ads", to: "ads#index"

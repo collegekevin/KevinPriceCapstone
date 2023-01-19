@@ -1,7 +1,7 @@
 
 function Ad({ ad, user }) {
 
-    console.log(ad)
+    //console.log(ad)
 
     //this function should only run when clicked... but it runs every time the Ad function runs
     function handleAdClick() {

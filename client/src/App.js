@@ -7,6 +7,7 @@ import Home from './Home'
 import NavBar from "./NavBar"
 import CreatePost from "./CreatePost"
 import UserPage from "./UserPage"
+import LoggedOut from "./LoggedOut"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,7 +30,8 @@ function App() {
         <Route path="/CreateUser" element={<CreateUser />} />
         <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} />} />
         <Route path="/CreatePost" element={<CreatePost user={user} />} />
-        <Route path="/users/:id" element={<UserPage />} />
+        <Route path="/users/:id" element={<UserPage user={user} />} />
+        <Route path="LoggedOut" element={<LoggedOut user={user} />} />
       </Routes>
     </div>
   );
