@@ -28,7 +28,7 @@ function Ad({ ad, user }) {
             <h3>{ad.company}</h3>
             <p>{ad.ad_text}</p>
             <img className="ad-img" src={ad.ad_image} alt={ad.company} />
-            <p className="zoom-box">Click the ad for details</p>
+            <p>Click the ad for details</p>
         </div>
     )
 }

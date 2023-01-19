@@ -90,7 +90,7 @@ function Post({ post, user }) {
             <img src={post.post_image} alt={"Pic issue"} />
             <p>{post.caption}</p>
             <span className="zoom-box" onClick={handleLike}>
-                🔥
+                🔥{post.total_likes}
             </span>
             <div>
                 <input
@@ -105,7 +105,7 @@ function Post({ post, user }) {
                 <button onClick={handleAddComment}>Share your thoughts</button>
             </div>
             <ul>
-                {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.user} : ${com.comment_text}`}</li>)}
+                {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</li>)}
             </ul>
         </div>
         //On line 101. Comment.last.user.username gives me what I want in rails console, but

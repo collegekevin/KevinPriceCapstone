@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   #this could just be /ad_clicks...I think"? not sure about _
   post "/createadclick", to: "ad_clicks#create"
+  delete "/clearadclicks", to:"ad_clicks#destroy"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
