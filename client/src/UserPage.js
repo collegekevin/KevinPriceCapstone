@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import DisplayAds from './DisplayAds'
 import DisplayPosts from './DisplayPosts'
@@ -56,6 +56,12 @@ function UserPage({ user }) {
                 console.log(createFollowReturn)
             });
 
+        // Do I have to go to a new component to send a message here
+
+        // return (
+        //     <p>You're now a follower</p>
+        // )
+
     }
 
 
@@ -70,6 +76,7 @@ function UserPage({ user }) {
 
     return (
         <div>
+            <p className="create-acc-link"><Link to="/home">Back to Homepage</Link></p>
             <h2>{userPageInfo.username}</h2>
             <h4>{userPageInfo.bio}</h4>
             <h5>

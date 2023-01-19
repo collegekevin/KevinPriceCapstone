@@ -104,9 +104,8 @@ function Post({ post, user }) {
                 />
                 <button onClick={handleAddComment}>Share your thoughts</button>
             </div>
-            <br></br>
             <ul>
-                {post.comments.map(com => <li key={com.id}>{`${com.user} : ${com.comment_text}`}</li>)}
+                {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.user} : ${com.comment_text}`}</li>)}
             </ul>
         </div>
         //On line 101. Comment.last.user.username gives me what I want in rails console, but

@@ -15,4 +15,9 @@ class UsersController < ApplicationController
       render json: user, status: :ok
     end
 
+    # def show_ads
+    #   user = User.find(params[:id])
+    #   redner json 
+    # end
+
   end

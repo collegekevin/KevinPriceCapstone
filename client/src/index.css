@@ -42,13 +42,13 @@ p {
 }
 
 a {
-  color: #26a8c8;
+  color: #376678;
   text-decoration: none;
   font-weight: 400;
 }
 
 a:hover {
-  color: #5abee2;
+  color: #213841;
   text-decoration: none;
   cursor: pointer;
 }
@@ -82,7 +82,7 @@ a:hover {
 }
 
 .nav-link:hover {
-  color: #5abee2;
+  color: #376678;
   cursor: pointer;
 }
 
@@ -155,7 +155,7 @@ a:hover {
 }
 
 .button:hover {
-  background-color: #26a8c8;
+  background-color: #376678;
   cursor: pointer;
 }
 
@@ -234,7 +234,7 @@ a:hover {
 .create-input-field:focus,
 .create-input-field:focus-visible,
 .create-input-field:focus-within {
-  border-color: #26a8c8;
+  border-color: #0a333d;
 }
 
 .back-link {
@@ -250,7 +250,7 @@ a:hover {
 }
 
 .edit-icon:hover {
-  color: #26a8c8;
+  color: #0a333d;
   font-size: 22px;
   cursor: pointer;
 }
@@ -262,7 +262,7 @@ a:hover {
 }
 
 .delete-icon:hover {
-  color: #26a8c8;
+  color: #213841;
   font-size: 22px;
   cursor: pointer;
 }
@@ -306,4 +306,15 @@ img {
 
 .ad-at-logout {
   text-align: center;
+}
+
+.create-btl-link {
+  font-size: 11px;
+  text-align: center;
+  padding-top: 14px;
+  color: rgb(11, 8, 17);
+}
+
+.comment-text {
+  font-size: 14px;
 }
