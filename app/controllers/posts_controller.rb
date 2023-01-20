@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index
-        render json: Post.all, status: :ok
+        render json: Post.all.reverse, status: :ok
     end
 
     def create

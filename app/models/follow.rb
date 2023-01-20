@@ -8,5 +8,8 @@ class Follow < ApplicationRecord
   # I think I'd want a custom validater to make sure the person isn't alread following
   # the person... but if I change the button on the front end that might be better. Both
   # would also be good.
+  # validates :follower, uniqueness: true
+
+  validates_uniqueness_of :follower_id, scope: :user_they_follow_id
 
 end

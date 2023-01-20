@@ -83,8 +83,8 @@ function UserPage({ user }) {
                 <button onClick={handleFollow}>Follow {userPageInfo.username}</button>
             </h5>
             {/* <CreatePost userPageInfo={userPageInfo} /> */}
-            <DisplayPosts user={userPageInfo} />
-            <DisplayAds user={userPageInfo} />
+            <DisplayPosts user={user} userPageInfo={userPageInfo} />
+            <DisplayAds user={user} userPageInfo={userPageInfo} />
         </div>
     )
 }

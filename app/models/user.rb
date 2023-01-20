@@ -14,5 +14,15 @@ class User < ApplicationRecord
     has_many :ads, through: :ad_clicks
 
     has_secure_password
-    validates :username, uniqueness: true
+    validates :username, presence: true, uniqueness: true 
+
+    def get_name
+        
+    end
+
+    # how the heck do I work with methods in the models again? I put this in the controller?
+    # def unique_ads
+    #     User.ads.unique 
+    # end
+    
 end
