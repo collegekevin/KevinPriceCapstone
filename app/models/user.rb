@@ -16,9 +16,36 @@ class User < ApplicationRecord
     has_secure_password
     validates :username, presence: true, uniqueness: true 
 
-    def get_name
-        
+    def home_page_post
+        # current_user = 
+        self.users_they_follow.map do |followed|
+            followed.posts
+       end
     end
+
+    def total_followers
+        self.followers.length
+    end
+
+    def total_users_you_follow
+        self.users_they_follow.length
+    end
+
+    def list_followers
+        self.followers.map do |follower|
+            follower.username
+        end
+    end
+
+    def list_users_you_follow
+        self.users_they_follow.map do |followed|
+            followed.username
+        end
+    end
+
+    # def get_name
+        
+    # end
 
     # how the heck do I work with methods in the models again? I put this in the controller?
     # def unique_ads

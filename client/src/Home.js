@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import CreatePost from "./CreatePost";
 import { Link } from "react-router-dom";
 import DisplayAds from "./DisplayAds";
-import DisplayPosts from "./DisplayPosts";
+import DisplayHomePosts from "./DisplayHomePosts";
 import DisplayFollows from "./DisplayFollows";
 
 function Home({ user }) {
 
     //const [posts, setPosts] = useState([])
-    console.log(user.users_they_follow)
 
     return (
         <div className='home-page'>
@@ -22,7 +21,7 @@ function Home({ user }) {
             <DisplayFollows user={user} />
             <p> <Link to="/CreatePost">
                 <button>Create a Post</button></Link></p>
-            <DisplayPosts user={user} />
+            <DisplayHomePosts user={user} />
             {/* <DisplayPosts posts={posts} setPosts={setPosts} user={user} /> */}
             <DisplayAds user={user} />
         </div>

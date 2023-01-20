@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Post({ post, user, userPageInfo }) {
+function HomePost({ post, user }) {
 
     const [commentText, setCommentText] = useState('')
 
@@ -83,41 +83,37 @@ function Post({ post, user, userPageInfo }) {
     //but it's not letting do post.user.username... 
 
     console.log(user.id)
-    console.log(post.user.id)
-    //console.log(userPageInfo.id)
+    //console.log(post.user.id)
+    // console.log(userPageInfo)
 
     return (
-        <div>
-            {user.id === post.user.id ?
-                <div className="post-stlying">
-                    <p>Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
-                    {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
-                    <img src={post.post_image} alt={"Pic issue"} />
-                    <p>{post.caption}</p>
-                    <span className="zoom-box" onClick={handleLike}>
-                        🔥{post.total_likes}
-                    </span>
-                    <ul>
-                        {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</li>)}
-                    </ul>
-                    <div>
-                        <input
-                            className="create-big-input-field"
-                            name="commentText"
-                            type="text"
-                            value={commentText}
-                            placeholder="Add your comment"
-                            onChange={handleCommentChange}
-                            required
-                        />
-                        <button onClick={handleAddComment}>Share your thoughts</button>
-                    </div>
-                </div>
-                : null}
+        <div className="post-stlying">
+            <p>Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
+            {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
+            <img src={post.post_image} alt={"Pic issue"} />
+            <p>{post.caption}</p>
+            <span className="zoom-box" onClick={handleLike}>
+                🔥{post.total_likes}
+            </span>
+            <div>
+                <input
+                    className="create-big-input-field"
+                    name="commentText"
+                    type="text"
+                    value={commentText}
+                    placeholder="Comment on this post"
+                    onChange={handleCommentChange}
+                    required
+                />
+                <button onClick={handleAddComment}>Share your thoughts</button>
+            </div>
+            <ul>
+                {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</li>)}
+            </ul>
         </div>
         //On line 101. Comment.last.user.username gives me what I want in rails console, but
         //com.user.username doesn't work there... but com.comment_text does...
     )
 }
 
-export default Post
+export default HomePost
