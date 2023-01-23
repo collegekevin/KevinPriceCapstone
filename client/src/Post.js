@@ -88,7 +88,7 @@ function Post({ post, user, userPageInfo }) {
 
     return (
         <div>
-            {user.id === post.user.id ?
+            {userPageInfo.id === post.user.id ?
                 <div className="post-stlying">
                     <p>Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
                     {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}

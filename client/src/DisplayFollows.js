@@ -1,16 +1,21 @@
 import React from 'react'
 import { useState, useEffect } from "react"
+import FollowersFormat from "./FollowersFormat"
 
 function DisplayFollows({ user }) {
 
     const [totalFollowers, setTotalFollowers] = useState(0)
-    const [showFollowers, setShowFollowers] = useState(false)
-    const [showWhoYouFollow, setShowWhoYouFollow] = useState(false)
+    const [showFollowers, setShowFollowers] = useState(true)
+    const [showWhoYouFollow, setShowWhoYouFollow] = useState(true)
 
     console.log(user.list_followers)
 
     function handleFollowersClick() {
         setShowFollowers(showFollowers => !showFollowers)
+    }
+
+    function handleYouFollowClick() {
+        setShowWhoYouFollow(showWhoYouFollow => !showWhoYouFollow)
     }
 
     // useEffect(() => {
@@ -29,12 +34,14 @@ function DisplayFollows({ user }) {
     return (
         <div>
             <div onClick={handleFollowersClick}>
-                <p>You have {user.total_followers} followers</p>
-                <p>{user.list_followers} are folling you</p>
+                {showFollowers ? <p>You have {user.total_followers} followers</p>
+                    : <p>{user.list_followers.toString()} follow you</p>}
+                {/* : user.list_followers.map(single_follower => <FollowersFormat single_follower={single_follower} user={user} />)} */}
             </div>
-            <p>You follow {user.total_users_you_follow} accounts</p>
-            <p>{user.list_users_you_follow} follow you</p>
-
+            <div onClick={handleYouFollowClick}>
+                {showWhoYouFollow ? <p>You follow {user.total_users_you_follow} accounts</p>
+                    : <p>You follow {user.list_users_you_follow.toString()}</p>}
+            </div>
         </div>
     )
 }
