@@ -9,7 +9,7 @@ function NavBar({ user, setIsLoggedIn }) {
             method: "DELETE",
         })
         console.log("User logged out")
-        navigate("/LoggedOut");
+        navigate("LoggedOut");
         setIsLoggedIn(false);
     }
 

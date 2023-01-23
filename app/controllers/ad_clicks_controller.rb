@@ -5,16 +5,16 @@ class AdClicksController < ApplicationController
         render json: ad_click
     end
 
-    def destroy
-        ad_clicks.delete :user_id
-        head :no_content
-    end
-
-    # Is there an easy way to destroy all of one users ad_clicks?
+    # I want to destroy all of one users ad_clicks... how exactly?
 
     # def destroy
-    #     ad_clicks = AdClick.find(params[:id])
-    #     ad_clicks.destroy
+    #     ad_clicks = AdClick.find_all(params[:user_id])
+    #     ad_clicks.destroy_all
+    #     head :no_content
+    # end
+
+        # def destroy
+    #     ad_clicks.delete :user_id
     #     head :no_content
     # end
 

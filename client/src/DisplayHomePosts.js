@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Post from "./Post"
+import HomePost from "./HomePost"
 
-function DisplayPosts({ user, userPageInfo }) {
+function DisplayHomePosts({ user }) {
 
     const [posts, setPosts] = useState([])
 
@@ -11,14 +11,15 @@ function DisplayPosts({ user, userPageInfo }) {
             .then((posts) => setPosts(posts))
     }, [])
 
-    //console.log(posts)
+
+    console.log(user.home_page_post)
 
     return (
         <div>
-            {posts.map(post => <Post key={post.id} post={post} user={user} userPageInfo={userPageInfo} />)}
+            {posts.map(post => <HomePost key={post.id} post={post} user={user} />)}
         </div>
     )
 }
 
 
-export default DisplayPosts
+export default DisplayHomePosts

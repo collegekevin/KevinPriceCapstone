@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import DisplayAds from './DisplayAds'
 import DisplayPosts from './DisplayPosts'
-import CreatePost from './CreatePost'
 
 function UserPage({ user }) {
 
@@ -26,6 +25,18 @@ function UserPage({ user }) {
                 }
             })
     }, [id])
+
+    console.log(userPageInfo.list_followers)
+
+    if (userPageInfo.total_followers > 0) {
+        userPageInfo.list_followers.forEach((fol) => {
+            if (fol === user.username) {
+                alreadyFollow = true
+                console.log(alreadyFollow)
+            }
+        })
+    }
+
 
     // or I could have a method on the backend that checks if they follow.
     //if () { alreadyFollow = true }
@@ -80,11 +91,12 @@ function UserPage({ user }) {
             <h2>{userPageInfo.username}</h2>
             <h4>{userPageInfo.bio}</h4>
             <h5>
-                <button onClick={handleFollow}>Follow {userPageInfo.username}</button>
+                {alreadyFollow ? <button> You Follow {userPageInfo.username}</button>
+                    : <button onClick={handleFollow}>Follow {userPageInfo.username}</button>}
             </h5>
             {/* <CreatePost userPageInfo={userPageInfo} /> */}
-            <DisplayPosts user={userPageInfo} />
-            <DisplayAds user={userPageInfo} />
+            <DisplayPosts user={user} userPageInfo={userPageInfo} />
+            <DisplayAds user={user} userPageInfo={userPageInfo} />
         </div>
     )
 }
