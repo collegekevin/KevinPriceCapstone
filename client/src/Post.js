@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 function Post({ post, user, userPageInfo }) {
 
     const [commentText, setCommentText] = useState('')
+    const [totalLikes, setTotalLikes] = useState(post.total_likes)
+    const [postComments, setPostComments] = useState([post.comments])
 
-    //console.log(post)
+    //console.log(totalLikes)
 
     function handleLike() {
         console.log("liked");
@@ -23,8 +25,9 @@ function Post({ post, user, userPageInfo }) {
 
         fetch("/createlike", configObject)
             .then((resp) => resp.json())
-            .then((createLikeReturn) => {
-                console.log(createLikeReturn)
+            .then((newLike) => {
+                console.log(newLike)
+                setTotalLikes(totalLikes => totalLikes + 1)
             });
     }
 
@@ -52,9 +55,10 @@ function Post({ post, user, userPageInfo }) {
 
         fetch("/createcomment", configCommentObject)
             .then((resp) => resp.json())
-            .then((createCommentReturn) => {
+            .then((newComment) => {
                 setCommentText('')
-                console.log(createCommentReturn)
+                console.log(newComment)
+                setPostComments([...postComments, newComment])
             });
     }
 
@@ -95,7 +99,7 @@ function Post({ post, user, userPageInfo }) {
                     <img src={post.post_image} alt={"Pic issue"} />
                     <p>{post.caption}</p>
                     <span className="zoom-box" onClick={handleLike}>
-                        🔥{post.total_likes}
+                        🔥{totalLikes}
                     </span>
                     <ul>
                         {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</li>)}

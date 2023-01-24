@@ -16,7 +16,7 @@ function Login({ setIsLoggedIn }) {
 
     function onSubmit(e) {
         e.preventDefault()
-        const user = {
+        const loginUser = {
             username,
             password
         }
@@ -24,7 +24,7 @@ function Login({ setIsLoggedIn }) {
         fetch(`/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(loginUser)
         })
             .then(res => {
                 if (res.ok) {

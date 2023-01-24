@@ -2,7 +2,7 @@ class AdClicksController < ApplicationController
 
     def create
         ad_click = AdClick.create!(ad_click_params)
-        render json: ad_click
+        render json: ad_click, status: :created
     end
 
     # I want to destroy all of one users ad_clicks... how exactly?

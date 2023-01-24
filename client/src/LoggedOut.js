@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 
-function LoggedOut({ user }) {
+function LoggedOut({ user, setUser }) {
 
     const [userGoodbye, setUserGoodbye] = useState({})
 
@@ -28,7 +28,10 @@ function LoggedOut({ user }) {
     //     console.log("ad clicks deleted")
     // }, [])  
 
-    console.log(user.ads)
+    console.log(userGoodbye.ads)
+
+    //I could put a ternary in the next bit and have it show the interactions if there were any and a 
+    //seperate message saying if they interact it raises more money if there weren't any
 
     return (
         <div>

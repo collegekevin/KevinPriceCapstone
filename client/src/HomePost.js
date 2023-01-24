@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 function HomePost({ post, user }) {
 
     const [commentText, setCommentText] = useState('')
+    const [totalLikes, setTotalLikes] = useState(post.total_likes)
+    const [postComments, setPostComments] = useState([post.comments])
 
     //console.log(post)
 
@@ -23,8 +25,9 @@ function HomePost({ post, user }) {
 
         fetch("/createlike", configObject)
             .then((resp) => resp.json())
-            .then((createLikeReturn) => {
-                console.log(createLikeReturn)
+            .then((newLike) => {
+                console.log(newLike)
+                setTotalLikes(totalLikes => totalLikes + 1)
             });
     }
 
@@ -52,9 +55,10 @@ function HomePost({ post, user }) {
 
         fetch("/createcomment", configCommentObject)
             .then((resp) => resp.json())
-            .then((createCommentReturn) => {
+            .then((newComment) => {
                 setCommentText('')
-                console.log(createCommentReturn)
+                console.log(newComment)
+                setPostComments([...postComments, newComment])
             });
     }
 
@@ -93,7 +97,7 @@ function HomePost({ post, user }) {
             <img src={post.post_image} alt={"Pic issue"} />
             <p>{post.caption}</p>
             <span className="zoom-box" onClick={handleLike}>
-                🔥{post.total_likes}
+                🔥{totalLikes}
             </span>
             <div>
                 <input

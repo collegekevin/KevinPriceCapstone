@@ -5,9 +5,10 @@ import DisplayAds from "./DisplayAds";
 import DisplayHomePosts from "./DisplayHomePosts";
 import DisplayFollows from "./DisplayFollows";
 
-function Home({ user }) {
+function Home({ user, setUser }) {
 
     //const [posts, setPosts] = useState([])
+    setUser(user)
 
     return (
         <div className='home-page'>

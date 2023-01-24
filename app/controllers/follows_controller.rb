@@ -2,7 +2,7 @@ class FollowsController < ApplicationController
 
     def create
         follow = Follow.create!(follow_params)
-        render json: follow, status: :ok
+        render json: follow, status: :created
     end
 
     private

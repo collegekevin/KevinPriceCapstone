@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function NavBar({ user, setIsLoggedIn }) {
+function NavBar({ user, setUser, setIsLoggedIn }) {
     const navigate = useNavigate()
 
     function handleLogout() {
@@ -11,6 +11,11 @@ function NavBar({ user, setIsLoggedIn }) {
         console.log("User logged out")
         navigate("LoggedOut");
         setIsLoggedIn(false);
+        //setUser({})
+    }
+
+    function handleEdit() {
+        navigate("EditUser")
     }
 
     return (
@@ -27,7 +32,13 @@ function NavBar({ user, setIsLoggedIn }) {
                 src={user.user_image}
                 alt={user.username}
             />
-
+            <br></br>
+            <Link
+                to="EditUser"
+                onClick={handleEdit}
+                className="nav-link"
+            > Edit Account Details
+            </Link>
         </div>
     );
 }

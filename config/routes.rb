@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#me"
   get "/users/:id", to: "users#show"
   get "/users/logout/:id", to: "users#show_ads"
+  patch "/users/:id", to: "users#update" 
+  
 
   post "/create", to: "sessions#create"
   post "/login", to: "sessions#login"
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
 
   #this could just be /ad_clicks...I think"? not sure about _
   post "/createadclick", to: "ad_clicks#create"
-  delete "/clearadclicks", to:"ad_clicks#destroy"
+  # delete "/clearadclicks", to:"ad_clicks#destroy"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

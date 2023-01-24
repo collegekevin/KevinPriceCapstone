@@ -8,6 +8,7 @@ import NavBar from "./NavBar"
 import CreatePost from "./CreatePost"
 import UserPage from "./UserPage"
 import LoggedOut from "./LoggedOut"
+import EditUser from "./EditUser"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,15 +24,16 @@ function App() {
 
   return (
     <div>
-      <NavBar user={user} setIsLoggedIn={setIsLoggedIn} />
+      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       {/* {isLoggedIn ? <NavBar user={user} setIsLoggedIn={setIsLoggedIn} /> : console.log("Nobody's logged in")} */}
       <Routes>
         <Route exact path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/CreateUser" element={<CreateUser />} />
-        <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} />} />
-        <Route path="/CreatePost" element={<CreatePost user={user} />} />
-        <Route path="/users/:id" element={<UserPage user={user} />} />
-        <Route path="LoggedOut" element={<LoggedOut user={user} />} />
+        <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} setUser={setUser} />} />
+        <Route path="/CreatePost" element={<CreatePost user={user} setUser={setUser} />} />
+        <Route path="/users/:id" element={<UserPage user={user} setUser={setUser} />} />
+        <Route path="LoggedOut" element={<LoggedOut user={user} setUser={setUser} />} />
+        <Route path="EditUser" element={<EditUser user={user} setUser={setUser} />} />
       </Routes>
     </div>
   );
