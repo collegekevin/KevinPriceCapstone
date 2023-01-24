@@ -25,11 +25,11 @@ function App() {
   return (
     <div>
       <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
-      {/* {isLoggedIn ? <NavBar user={user} setIsLoggedIn={setIsLoggedIn} /> : console.log("Nobody's logged in")} */}
+      {/* {isLoggedIn ? <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> : console.log("Nobody's logged in")} */}
       <Routes>
         <Route exact path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/CreateUser" element={<CreateUser />} />
-        <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} setUser={setUser} />} />
+        <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/CreatePost" element={<CreatePost user={user} setUser={setUser} />} />
         <Route path="/users/:id" element={<UserPage user={user} setUser={setUser} />} />
         <Route path="LoggedOut" element={<LoggedOut user={user} setUser={setUser} />} />

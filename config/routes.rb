@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #I'm going to have to update my routes at the end.
   get "/me", to: "users#me"
   get "/users/:id", to: "users#show"
-  get "/users/logout/:id", to: "users#show_ads"
+  # get "/users/logout/:id", to: "users#show_ads"
   patch "/users/:id", to: "users#update" 
   
 

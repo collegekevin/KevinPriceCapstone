@@ -5,10 +5,15 @@ import DisplayAds from "./DisplayAds";
 import DisplayHomePosts from "./DisplayHomePosts";
 import DisplayFollows from "./DisplayFollows";
 
-function Home({ user, setUser }) {
+function Home({ user, setUser, isLoggedIn, setIsLoggedIn }) {
 
+    console.log(isLoggedIn)
+    setIsLoggedIn(true)
     //const [posts, setPosts] = useState([])
-    setUser(user)
+    // setUser({})
+    // console.log(user)
+    // setUser(user)
+    // console.log(user)
 
     return (
         <div className='home-page'>
@@ -17,7 +22,7 @@ function Home({ user, setUser }) {
             <h2 className='subheading'>You're helping to raise money for amazing charities</h2>
             <h2 className='subheading'>and the world just got better because of you.</h2>
             <br />
-            <h3 className='subheading'> <em>(Provided I can get this to work)</em> </h3>
+            {/* <h3 className='subheading'> <em>(Provided I can get this to work)</em> </h3>  */}
             {/* <p id="click-details">｛ <em>Which is questionable at this point</em> ｝</p> */}
             <DisplayFollows user={user} />
             <p> <Link to="/CreatePost">

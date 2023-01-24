@@ -24,7 +24,7 @@ function Ad({ ad, user }) {
     }
 
     return (
-        <div className="ad-stlying" onClick={handleAdClick}>
+        <div className="ad-card" onClick={handleAdClick}>
             <h3>{ad.company}</h3>
             <p>{ad.ad_text}</p>
             <img className="ad-img" src={ad.ad_image} alt={ad.company} />

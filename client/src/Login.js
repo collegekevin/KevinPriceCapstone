@@ -14,6 +14,8 @@ function Login({ setIsLoggedIn }) {
 
     const { username, password } = formData
 
+    // setUser({})
+
     function onSubmit(e) {
         e.preventDefault()
         const loginUser = {

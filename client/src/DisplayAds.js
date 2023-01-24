@@ -35,7 +35,9 @@ function DisplayAds({ user }) {
     return (
         <div>
             <h4>The companies below will donate MORE money to charity if you interact with them.</h4>
-            {ads.map(ad => <Ad key={ad.id} ad={ad} user={user} />)}
+            <div className="ad-styling">
+                {ads.map(ad => <Ad key={ad.id} ad={ad} user={user} />)}
+            </div>
         </div>
     )
 }

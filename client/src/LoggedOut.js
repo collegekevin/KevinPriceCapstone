@@ -7,7 +7,7 @@ function LoggedOut({ user, setUser }) {
 
     useEffect(() => {
         //GET to '/users/:id'
-        fetch(`/users/logout/${user.id}`)
+        fetch(`/users/${user.id}`)
             .then(res => {
                 if (res.ok) {
                     res.json().then(data => {

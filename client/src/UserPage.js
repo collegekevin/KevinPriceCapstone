@@ -7,6 +7,7 @@ import DisplayPosts from './DisplayPosts'
 function UserPage({ user }) {
 
     let alreadyFollow = false
+    const [changeFollowButton, setChangeFollowButton] = useState(false)
 
     const { id } = useParams()
     const [userPageInfo, setUserPageInfo] = useState({})
@@ -76,7 +77,7 @@ function UserPage({ user }) {
     }
 
 
-
+    //setChangeFollowButton(alreadyFollow)
 
 
     // I don't want create post here. This is to look at somebody else's page. I want the
