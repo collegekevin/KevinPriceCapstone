@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Post from "./Post"
+import DisplayUserAds from "./DisplayAds";
 
 function CreatePost({ user }) {
 
@@ -79,6 +80,7 @@ function CreatePost({ user }) {
                 <button className="button" type="submit">Create Post</button>
             </form>
             <p> <Link to="/Home">Back to Homepage</Link></p>
+            <DisplayUserAds user={user} />
         </div>
     );
 }

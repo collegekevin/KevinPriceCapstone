@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import DisplayAds from './DisplayAds'
 
 function Login({ setIsLoggedIn }) {
     const [user, setUser] = useState({})
@@ -79,6 +80,8 @@ function Login({ setIsLoggedIn }) {
                 {errors ? <div className="errors">{errors}</div> : null}
                 <p className="create-acc-link"> Need an account? <Link to="/CreateUser">Sign up here!</Link></p>
             </div>
+            <br />
+            <DisplayAds />
         </div>
     )
 }

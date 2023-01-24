@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import DisplayAds from "./DisplayAds";
 
 function CreateUser() {
 
@@ -141,6 +142,7 @@ function CreateUser() {
                 </div>
                 <p className="back-link"><Link to="/">← Back to Log In</Link></p>
             </div>
+            <DisplayAds />
         </div>
     )
 }

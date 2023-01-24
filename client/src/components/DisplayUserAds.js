@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import Ad from "./Ad"
+import UserAd from "./UserAd"
 
-function DisplayAds() {
+function DisplayUserAds({ user }) {
 
     const [ads, setAds] = useState([])
 
@@ -10,8 +10,6 @@ function DisplayAds() {
             .then((resp) => resp.json())
             .then((ads) => setAds(ads))
     }, [])
-
-    // Math.floor(Math.random() * request.data.results.length - 1)
 
     console.log(ads)
 
@@ -38,11 +36,11 @@ function DisplayAds() {
         <div>
             <h3 className="ad-into">The companies below will donate MORE money to charity if you interact with them.</h3>
             <div className="ad-styling">
-                {ads.map(ad => <Ad key={ad.id} ad={ad} />)}
+                {ads.map(ad => <UserAd key={ad.id} ad={ad} user={user} />)}
             </div>
         </div>
     )
 }
 
 
-export default DisplayAds
+export default DisplayUserAds

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
+import DisplayAds from "./DisplayAds"
 
 function LoggedOut({ user, setUser }) {
 
@@ -41,6 +42,7 @@ function LoggedOut({ user, setUser }) {
             <h2 className="ad-at-logout">If you ever want to buy something from them, do it from here</h2>
             <h2 className="ad-at-logout">and you will help raise even MORE money for awesome charities!</h2>
             <h5 className="create-btl-link"> <Link to="/">Click here to sign in</Link></h5>
+            <DisplayAds user={user} />
         </div>
     )
 }

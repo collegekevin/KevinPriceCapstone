@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import DisplayAds from './DisplayAds'
+import DisplayUserAds from './DisplayAds'
 import DisplayPosts from './DisplayPosts'
 
 function UserPage({ user }) {
@@ -97,7 +97,7 @@ function UserPage({ user }) {
             </h5>
             {/* <CreatePost userPageInfo={userPageInfo} /> */}
             <DisplayPosts user={user} userPageInfo={userPageInfo} />
-            <DisplayAds user={user} userPageInfo={userPageInfo} />
+            <DisplayUserAds user={user} userPageInfo={userPageInfo} />
         </div>
     )
 }

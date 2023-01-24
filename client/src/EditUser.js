@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import DisplayUserAds from "./components/DisplayUserAds";
 
 function EditUser({ user, setUser }) {
 
@@ -188,6 +189,7 @@ function EditUser({ user, setUser }) {
                 </div>
                 <p> <Link to="/Home">Back to Homepage</Link></p>
             </div>
+            <DisplayUserAds user={user} />
         </div>
     )
 }

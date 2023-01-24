@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CreatePost from "./CreatePost";
 import { Link } from "react-router-dom";
-import DisplayAds from "./DisplayAds";
+import DisplayUserAds from "./DisplayAds";
 import DisplayHomePosts from "./DisplayHomePosts";
 import DisplayFollows from "./DisplayFollows";
 
@@ -29,7 +29,7 @@ function Home({ user, setUser, isLoggedIn, setIsLoggedIn }) {
                 <button>Create a Post</button></Link></p>
             <DisplayHomePosts user={user} />
             {/* <DisplayPosts posts={posts} setPosts={setPosts} user={user} /> */}
-            <DisplayAds user={user} />
+            <DisplayUserAds user={user} />
         </div>
     );
 }
