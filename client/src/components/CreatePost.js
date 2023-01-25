@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Post from "./Post"
-import DisplayUserAds from "./DisplayAds";
+import DisplayUserAds from './DisplayUserAds'
 
 function CreatePost({ user }) {
 

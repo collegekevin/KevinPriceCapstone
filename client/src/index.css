@@ -335,7 +335,8 @@ img {
   text-align: center;
 }
 
-.ad-into {
+.ad-intro {
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -366,4 +367,10 @@ img {
 
 .title-div {
   margin-right: 30px;
+}
+
+.post-styling {
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
 }

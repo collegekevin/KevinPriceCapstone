@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Post({ post, user, userPageInfo }) {
+function YourPosts({ post, user }) {
 
     const [commentText, setCommentText] = useState('')
     const [totalLikes, setTotalLikes] = useState(post.total_likes)
@@ -9,27 +9,27 @@ function Post({ post, user, userPageInfo }) {
 
     //console.log(totalLikes)
 
-    function handleLike() {
-        console.log("liked");
+    // function handleLike() {
+    //     console.log("liked");
 
-        const likeObj = { post_id: post.id, user_id: user.id };
-        console.log(likeObj)
+    //     const likeObj = { post_id: post.id, user_id: user.id };
+    //     console.log(likeObj)
 
-        const configObject = {
-            method: "POST",
-            headers: {
-                "content-type": "application/JSON",
-            },
-            body: JSON.stringify(likeObj),
-        };
+    //     const configObject = {
+    //         method: "POST",
+    //         headers: {
+    //             "content-type": "application/JSON",
+    //         },
+    //         body: JSON.stringify(likeObj),
+    //     };
 
-        fetch("/createlike", configObject)
-            .then((resp) => resp.json())
-            .then((newLike) => {
-                console.log(newLike)
-                setTotalLikes(totalLikes => totalLikes + 1)
-            });
-    }
+    //     fetch("/createlike", configObject)
+    //         .then((resp) => resp.json())
+    //         .then((newLike) => {
+    //             console.log(newLike)
+    //             setTotalLikes(totalLikes => totalLikes + 1)
+    //         });
+    // }
 
     function handleCommentChange(e) {
         setCommentText(e.target.value);
@@ -62,15 +62,19 @@ function Post({ post, user, userPageInfo }) {
             });
     }
 
-    // function handleUserClick() {
-    //     console.log(post.user)
-    //     <Link to="/UserPage">{post.user.username}</Link>
-    // }
+    function handlePostDelete() {
+        console.log(post.id)
 
+        fetch(`/posts/${post.id}`, {
+            method: "DELETE",
+        })
+        console.log("Post is deleted")
+        //setUser({})
+    }
 
     // const likeObj = { likes: (post.likes += 1) };
     // const configObject = {
-    //   method: "POST",
+    //   method: "DELETE",
     //   headers: {
     //     "content-type": "application/JSON",
     //   },
@@ -92,13 +96,16 @@ function Post({ post, user, userPageInfo }) {
 
     return (
         <div>
-            {userPageInfo.id === post.user.id ?
-                <div className="post-stlying">
-                    <p>Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
+            {user.id === post.user.id ?
+                <div className="post-styling">
+                    <p>
+                        {/* <button>Edit this Post <Link to={`/users/${post.user.id}`}></Link></button> */}
+                        <button onClick={handlePostDelete}>Delete this Post <Link to={`/users/${post.user.id}`}></Link></button>
+                    </p>
                     {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
                     <img src={post.post_image} alt={"Pic issue"} />
                     <p>{post.caption}</p>
-                    <span className="zoom-box" onClick={handleLike}>
+                    <span className="zoom-box" >
                         🔥{totalLikes}
                     </span>
                     <ul>
@@ -114,6 +121,7 @@ function Post({ post, user, userPageInfo }) {
                             onChange={handleCommentChange}
                             required
                         />
+                        <br></br>
                         <button onClick={handleAddComment}>Share your thoughts</button>
                     </div>
                 </div>
@@ -124,4 +132,4 @@ function Post({ post, user, userPageInfo }) {
     )
 }
 
-export default Post
+export default YourPosts

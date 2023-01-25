@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   #these can just be covered up in resources. Both could be "/posts" 
   get "/posts", to: "posts#index"
   post "/createpost", to: "posts#create"
+  get "/posts/:id", to: "posts#show"
+  delete "/posts/:id", to: "posts#destroy"
 
   #this could just be /comments
   post "/createcomment", to: "comments#create"

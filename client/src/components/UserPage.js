@@ -1,13 +1,13 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import DisplayUserAds from './DisplayAds'
+import DisplayUserAds from './DisplayUserAds'
 import DisplayPosts from './DisplayPosts'
 
 function UserPage({ user }) {
 
     let alreadyFollow = false
-    const [changeFollowButton, setChangeFollowButton] = useState(false)
+    //const [changeFollowButton, setChangeFollowButton] = useState(false)
 
     const { id } = useParams()
     const [userPageInfo, setUserPageInfo] = useState({})
@@ -27,7 +27,8 @@ function UserPage({ user }) {
             })
     }, [id])
 
-    console.log(userPageInfo.list_followers)
+    //console.log(userPageInfo.list_followers)
+
 
     if (userPageInfo.total_followers > 0) {
         userPageInfo.list_followers.forEach((fol) => {
@@ -89,6 +90,7 @@ function UserPage({ user }) {
     return (
         <div>
             <p className="create-acc-link"><Link to="/home">Back to Homepage</Link></p>
+            <DisplayUserAds user={user} />
             <h2>{userPageInfo.username}</h2>
             <h4>{userPageInfo.bio}</h4>
             <h5>

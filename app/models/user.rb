@@ -43,6 +43,10 @@ class User < ApplicationRecord
         end
     end
 
+    # def does_logged_in_follow?
+    #     self.followers.map do |follower|
+    # end
+
     # def get_name
         
     # end

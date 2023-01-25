@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+// import DisplayAds from "./DisplayAds";
 
 function NavBar({ user, setUser, setIsLoggedIn, isLoggedIn }) {
     const navigate = useNavigate()
@@ -52,7 +53,6 @@ function NavBar({ user, setUser, setIsLoggedIn, isLoggedIn }) {
 
                 <br></br>
             </div>
-
         </div >
     );
 }
