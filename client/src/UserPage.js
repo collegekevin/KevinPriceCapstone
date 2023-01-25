@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import DisplayAds from './DisplayAds'
+import DisplayUserAds from './DisplayAds'
 import DisplayPosts from './DisplayPosts'
 
 function UserPage({ user }) {
 
     let alreadyFollow = false
+    const [changeFollowButton, setChangeFollowButton] = useState(false)
 
     const { id } = useParams()
     const [userPageInfo, setUserPageInfo] = useState({})
@@ -76,7 +77,7 @@ function UserPage({ user }) {
     }
 
 
-
+    //setChangeFollowButton(alreadyFollow)
 
 
     // I don't want create post here. This is to look at somebody else's page. I want the
@@ -96,7 +97,7 @@ function UserPage({ user }) {
             </h5>
             {/* <CreatePost userPageInfo={userPageInfo} /> */}
             <DisplayPosts user={user} userPageInfo={userPageInfo} />
-            <DisplayAds user={user} userPageInfo={userPageInfo} />
+            <DisplayUserAds user={user} userPageInfo={userPageInfo} />
         </div>
     )
 }

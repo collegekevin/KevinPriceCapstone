@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom";
 import Post from "./Post"
+import DisplayUserAds from "./DisplayAds";
 
 function CreatePost({ user }) {
 
@@ -9,6 +10,8 @@ function CreatePost({ user }) {
     const [posts, setPosts] = useState([])
     const [createdPost, setCreatedPost] = useState({})
     // const [newPostArray, setNewPostArray] = useState([])
+
+    const navigate = useNavigate()
 
     function handlePostSubmit(e) {
         e.preventDefault();
@@ -34,6 +37,7 @@ function CreatePost({ user }) {
                 setPostImage("");
                 setCaption("");
                 setCreatedPost(postReturn)
+                navigate(`/home`)
                 // useNavigate(`/home`)
             });
 
@@ -76,6 +80,7 @@ function CreatePost({ user }) {
                 <button className="button" type="submit">Create Post</button>
             </form>
             <p> <Link to="/Home">Back to Homepage</Link></p>
+            <DisplayUserAds user={user} />
         </div>
     );
 }

@@ -16,6 +16,12 @@ Taylor = User.create(username: "Taylor", password: "11111111", first_name: "Tayl
 puts "Seeding Ads"
 ad1 = Ad.create(company: "Sleep Store", ad_text: "Tired from saving the world?", ad_image:"https://media.istockphoto.com/id/1355162205/photo/african-american-woman-sleeping-on-bed-at-home.jpg?b=1&s=170667a&w=0&k=20&c=OybW5UEy9VZVd_AEJHyj_JEidEELjNTSK5597-CAXvo=")
 ad2 = Ad.create(company: "The Energy Drink", ad_text: "Need to Power Up to help others?", ad_image:"https://media.istockphoto.com/id/1314800776/photo/attractive-sportswoman-is-refreshing-with-cold-drink-after-hard-exercise.jpg?b=1&s=170667a&w=0&k=20&c=Ub4wB84XWyuqibwv_ftMWOr9ALFwxPqdsLQcXsNntTA=")
+ad3 = Ad.create(company: "Top Dog Food", ad_text: "Your dog should eat better than you!", ad_image:"https://media.istockphoto.com/id/1337583771/photo/a-large-grilled-filet-mignon-steak-with-butter-and-thyme-is-served-chopped-on-a-wooden-board.jpg?s=612x612&w=0&k=20&c=E_LPB7wNiAnF_xBnUJAaX2cUrIKsB-XtKGjRmunLc7o=")
+ad4 = Ad.create(company: "Super Toilet Paper", ad_text: "Change the world one square at a time!", ad_image:"https://media.istockphoto.com/id/1213342916/vector/toilet-paper-icon-flat.jpg?s=612x612&w=0&k=20&c=bOpMnohSf_5Kys4gfwPIere4LHjFjpORI3BMa_Mtj18=")
+ad5 = Ad.create(company: "The Gift Palace", ad_text: "We hear you're a giver?", ad_image:"https://media.istockphoto.com/id/1383842766/photo/gift-image-for-fathers-day-and-men.jpg?b=1&s=170667a&w=0&k=20&c=Ndk5R-GxsHlrSMV9DNjACm4RzW4JFP9YIDHx8VUhTTQ=")
+ad6 = Ad.create(company: "A Massage You Believe In", ad_text: "Treat yourself. You deserve it.", ad_image:"https://media.istockphoto.com/id/1297624578/photo/spouses-receiving-relaxing-beauty-treatment-lying-at-luxury-spa-center.jpg?s=612x612&w=0&k=20&c=6S_Og4bKn2UNuzGQ7PIsQDToflBmBW5p6swChR1uw3U=")
+
+
 
 # puts "Seeding Posts"
 # pic1 = Post.create(post_image: "https://thumbs.dreamstime.com/b/funny-cat-red-tomato-grooming-sitting-window-next-to-large-looking-out-window-dreaming-42995615.jpg", caption: "Twins!", user_id: Kevin.id)

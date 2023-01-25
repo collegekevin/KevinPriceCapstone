@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import DisplayAds from './DisplayAds'
 
 function Login({ setIsLoggedIn }) {
     const [user, setUser] = useState({})
@@ -14,9 +15,11 @@ function Login({ setIsLoggedIn }) {
 
     const { username, password } = formData
 
+    // setUser({})
+
     function onSubmit(e) {
         e.preventDefault()
-        const user = {
+        const loginUser = {
             username,
             password
         }
@@ -24,7 +27,7 @@ function Login({ setIsLoggedIn }) {
         fetch(`/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(loginUser)
         })
             .then(res => {
                 if (res.ok) {
@@ -77,6 +80,8 @@ function Login({ setIsLoggedIn }) {
                 {errors ? <div className="errors">{errors}</div> : null}
                 <p className="create-acc-link"> Need an account? <Link to="/CreateUser">Sign up here!</Link></p>
             </div>
+            <br />
+            <DisplayAds />
         </div>
     )
 }

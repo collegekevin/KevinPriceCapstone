@@ -15,9 +15,20 @@ class UsersController < ApplicationController
       render json: user, status: :ok
     end
 
+    def update 
+      user = User.find(params[:id])
+      user.update!(user_params)
+      render json: user, status: :accepted
+    end
+
     # def show_ads
     #   user = User.find(params[:id])
     #   redner json 
     # end
+private
 
+  def user_params
+    params.permit(:username, :password, :password_confirmation, :first_name, :last_name, :user_image, :bio)
   end
+
+end

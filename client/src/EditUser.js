@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import DisplayAds from "./DisplayAds";
+import DisplayUserAds from "./components/DisplayUserAds";
 
-function CreateUser() {
+function EditUser({ user, setUser }) {
 
-    const [username, setUsername] = useState("");
+    // const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
     const [profileImg, setProfileImg] = useState("");
     const [bio, setBio] = useState("");
 
@@ -15,21 +15,21 @@ function CreateUser() {
 
     const navigate = useNavigate()
 
-    function handleUsernameChange(e) {
-        setUsername(e.target.value);
-    }
+    // function handleUsernameChange(e) {
+    //     setUsername(e.target.value);
+    // }
 
-    function handlePasswordChange(e) {
-        setPassword(e.target.value);
-    }
+    // function handlePasswordChange(e) {
+    //     setPassword(e.target.value);
+    // }
 
-    function handleFirstNameChange(e) {
-        setFirstName(e.target.value);
-    }
+    // function handleFirstNameChange(e) {
+    //     setFirstName(e.target.value);
+    // }
 
-    function handleLastNameChange(e) {
-        setLastName(e.target.value);
-    }
+    // function handleLastNameChange(e) {
+    //     setLastName(e.target.value);
+    // }
 
     function handleProfileImgChange(e) {
         setProfileImg(e.target.value);
@@ -39,37 +39,77 @@ function CreateUser() {
         setBio(e.target.value);
     }
 
-    function handleSubmit(e) {
+    function handleNewPic(e) {
         e.preventDefault();
-        console.log("submitted");
+        console.log("New Pic submitted");
 
-        const userObj = {
-            username,
-            first_name: firstName,
-            last_name: lastName,
+        const picEditObj = {
+            username: user.username,
+            first_name: user.first_name,
+            last_name: user.last_name,
             password,
             user_image: profileImg,
-            bio: bio
+            bio: user.bio
         };
-        console.log(userObj);
+
+        console.log(picEditObj);
 
         const configObject = {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 "content-type": "application/JSON",
             },
-            body: JSON.stringify(userObj),
+            body: JSON.stringify(picEditObj),
         };
 
-        fetch("/create", configObject)
+        fetch(`/user/${user.id}`, configObject)
             .then((r) => r.json())
-            .then((user) => {
-                setFirstName("");
-                setLastName("");
-                setUsername("");
-                setPassword("");
+            .then((updatedUser) => {
+                // setFirstName("");
+                // setLastName("");
+                // setUsername("");
+                // setPassword("");
                 setProfileImg("");
+                setUser(updatedUser)
                 // navigate(`/users/${user.id}`)
+                navigate(`/home`)
+            });
+    }
+
+    function handleNewBio(e) {
+        e.preventDefault();
+        console.log("New Bio submitted");
+
+        const newBioObj = {
+            username: user.username,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            password,
+            user_image: user.user_image,
+            bio: bio
+        };
+
+        console.log(newBioObj);
+
+        const configObject = {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/JSON",
+            },
+            body: JSON.stringify(newBioObj),
+        };
+
+        fetch(`/users/${user.id}`, configObject)
+            .then((r) => r.json())
+            .then((updatedUser) => {
+                // setFirstName("");
+                // setLastName("");
+                // setUsername("");
+                // setPassword("");
+                //setProfileImg("");
+                setBio('');
+                // navigate(`/users/${user.id}`)
+                setUser(updatedUser)
                 navigate(`/home`)
             });
     }
@@ -78,8 +118,8 @@ function CreateUser() {
         <div>
             <div className="create-post-card">
                 <div className="create-post-form">
-                    <form onSubmit={handleSubmit}>
-                        <input
+                    <form onSubmit={handleNewPic}>
+                        {/* <input
                             className="create-input-field"
                             name="username"
                             type="text"
@@ -88,8 +128,8 @@ function CreateUser() {
                             onChange={handleUsernameChange}
                             required
                         />
-                        <br />
-                        <input
+                        <br /> */}
+                        {/* <input
                             className="create-input-field"
                             name="password"
                             type="password"
@@ -98,8 +138,8 @@ function CreateUser() {
                             onChange={handlePasswordChange}
                             required
                         />
-                        <br />
-                        <input
+                        <br /> */}
+                        {/* <input
                             className="create-input-field"
                             name="first_name"
                             type="text"
@@ -118,33 +158,40 @@ function CreateUser() {
                             onChange={handleLastNameChange}
                             required
                         />
+                        <br /> */}
                         <br />
+                        <p>Enter an updated profile picture</p>
                         <input
-                            className="create-input-field"
+                            className="create-big-input-field"
                             name="profile_img"
                             value={profileImg}
-                            placeholder="Enter Profile Img URL Here"
+                            placeholder="New Photo"
                             onChange={handleProfileImgChange}
                             required
                         />
                         <br />
+                        <button type="submit">Submit New Pic</button>
+                    </form>
+                    <form onSubmit={handleNewBio}>
+                        <br />
+                        <p>Update your bio</p>
                         <input
                             className="create-big-input-field"
                             name="profile_img"
                             value={bio}
-                            placeholder="What do you want people to know about you?"
+                            placeholder={user.bio}
                             onChange={handleBioChange}
                             required
                         />
                         <br />
-                        <button className="button" type="submit">Create Account</button>
+                        <button type="submit">Submit New Bio</button>
                     </form>
                 </div>
-                <p className="back-link"><Link to="/">← Back to Log In</Link></p>
+                <p> <Link to="/Home">Back to Homepage</Link></p>
             </div>
-            <DisplayAds />
+            <DisplayUserAds user={user} />
         </div>
     )
 }
 
-export default CreateUser;
+export default EditUser

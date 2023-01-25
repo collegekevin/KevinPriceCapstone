@@ -59,15 +59,18 @@ a:hover {
   color: white;
   /* position: fixed; */
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   vertical-align: middle;
-  justify-content: right;
+  justify-content: space-between;
   top: 0;
   left: 0;
   right: 0;
   padding-top: 8px;
-  padding-right: 20px;
+  /* padding-right: 20px; */
   height: 60px;
-  text-align: right;
+  /* text-align: right; */
+  margin-bottom: 40px;
 }
 
 .nav-link {
@@ -86,15 +89,32 @@ a:hover {
   cursor: pointer;
 }
 
+.nav-buttons {
+  text-align: left;
+  float: left;
+}
+
+.nav-avatar {
+  float: right;
+  padding-right: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .avatar {
-  width: 100px;
-  height: 100px;
-  margin-top: 12px;
-  margin-right: 0;
+  width: 70px;
+  height: 70px;
+  /* margin-top: 12px; */
+  /* margin-right: 0; */
+  text-align: right;
   border: 0;
   border-radius: 50%;
-  background-color: #5abee2;
+  /* background-color: #5abee2; */
+}
+
+.avatar-name {
+  text-align: right;
 }
 
 
@@ -282,12 +302,17 @@ a:hover {
 
 .ad-card {
   margin-left: 50px;
+  flex-direction: column;
+  word-break: break-word;
+  width: 220px;
   margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0;
-
+  padding: 10;
+  border-radius: 5px;
+  background-color: #ffffff;
 }
 
 img {
@@ -295,9 +320,23 @@ img {
   max-height: 300px;
 }
 
+.ad-styling {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .ad-img {
   max-width: 200px;
   max-height: 150px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.ad-into {
+  text-align: center;
 }
 
 .message-at-logout {
@@ -317,4 +356,14 @@ img {
 
 .comment-text {
   font-size: 14px;
+}
+
+.site-title {
+  font-size: 60px;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.title-div {
+  margin-right: 30px;
 }
