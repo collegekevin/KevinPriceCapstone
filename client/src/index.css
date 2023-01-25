@@ -84,6 +84,11 @@ a:hover {
   letter-spacing: 1.5px;
 }
 
+.homepage-return {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
 .nav-link:hover {
   color: #376678;
   cursor: pointer;
@@ -137,6 +142,7 @@ a:hover {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .input-field {
@@ -165,7 +171,8 @@ a:hover {
 .button {
   color: white;
   background-color: black;
-  width: 98%;
+  /* width: 98%; */
+  width: 100px;
   margin-top: 5px;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -182,7 +189,7 @@ a:hover {
 /*  HOME PAGE */
 
 .home-page {
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -191,7 +198,7 @@ a:hover {
   width: 85%;
   border: 0px solid;
   border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); */
 }
 
 .greeting {
@@ -325,6 +332,7 @@ img {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .ad-img {
@@ -355,6 +363,13 @@ img {
   color: rgb(11, 8, 17);
 }
 
+.create-acc-link {
+  font-size: 14px;
+  text-align: center;
+  padding-top: 14px;
+  color: rgb(11, 8, 17);
+}
+
 .comment-text {
   font-size: 14px;
 }
@@ -373,4 +388,17 @@ img {
   justify-content: center;
   text-align: center;
   margin-top: 10px;
+}
+
+.center-stuff {
+  text-align: center;
+  justify-content: center;
+}
+
+.follower-info {
+  font-size: 20px;
+}
+
+.company-name {
+  text-align: center
 }

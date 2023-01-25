@@ -31,15 +31,15 @@ function DisplayFollows({ user }) {
     // }, [id])
 
     return (
-        <div>
-            <div onClick={handleFollowersClick}>
-                {showFollowers ? <p>You have {user.total_followers} followers</p>
-                    : <p>{user.list_followers.toString()} follow you</p>}
+        <div >
+            <div onClick={handleFollowersClick} >
+                {showFollowers ? <p className="follower-info">You have {user.total_followers} followers</p>
+                    : <p className="follower-info">{user.list_followers.toString()} follow you</p>}
                 {/* : user.list_followers.map(single_follower => <FollowersFormat single_follower={single_follower} user={user} />)} */}
             </div>
             <div onClick={handleYouFollowClick}>
-                {showWhoYouFollow ? <p>You follow {user.total_users_you_follow} accounts</p>
-                    : <p>You follow {user.list_users_you_follow.toString()}</p>}
+                {showWhoYouFollow ? <p className="follower-info" >You follow {user.total_users_you_follow} accounts</p>
+                    : <p className="follower-info">You follow {user.list_users_you_follow.toString()}</p>}
             </div>
         </div>
     )

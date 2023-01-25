@@ -38,7 +38,7 @@ function LoggedOut({ user, setUser }) {
         <div>
             <h2 className="ad-at-logout">Thanks for stopping by, {user.username}!</h2>
             <h2 className="ad-at-logout">You interacted with ads for the following companies today:</h2>
-            {user.ads.map(ad => <h1 className="ad-at-logout">{ad.company}</h1>)}
+            {user ? <div>{user.ads.map(ad => <h1 className="ad-at-logout">{ad.company}</h1>)}</div> : console.log("already logged out")}
             <h2 className="ad-at-logout">If you ever want to buy something from them, do it from here</h2>
             <h2 className="ad-at-logout">and you will help raise even MORE money for awesome charities!</h2>
             <h5 className="create-btl-link"> <Link to="/">Click here to sign in</Link></h5>

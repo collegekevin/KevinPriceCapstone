@@ -25,10 +25,10 @@ function Ad({ ad, user }) {
 
     return (
         <div className="ad-card" >
-            <h3>{ad.company}</h3>
-            <p>{ad.ad_text}</p>
+            <h3 className="company-name">{ad.company}</h3>
+            <p className="center-stuff">{ad.ad_text}</p>
             <img className="ad-img" src={ad.ad_image} alt={ad.company} />
-            <p>Click the ad for details</p>
+            <p className="center-stuff">Click the ad for details</p>
         </div>
     )
 }
