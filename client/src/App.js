@@ -26,6 +26,9 @@ function App() {
 
   return (
     <div>
+      <div className="title-div">
+        <h1 className="real-site-title">The Giving Page</h1>
+      </div>
       <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       {/* {isLoggedIn ? <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> : console.log("Nobody's logged in")} */}
       <Routes>

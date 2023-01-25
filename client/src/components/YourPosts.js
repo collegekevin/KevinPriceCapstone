@@ -96,6 +96,7 @@ function YourPosts({ post, user }) {
 
     return (
         <div>
+            <p className="create-acc-link"><Link to="/home">Back to Homepage</Link></p>
             {user.id === post.user.id ?
                 <div className="post-styling">
                     <p>
@@ -104,13 +105,13 @@ function YourPosts({ post, user }) {
                     </p>
                     {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
                     <img src={post.post_image} alt={"Pic issue"} />
-                    <p>{post.caption}</p>
+                    <h4>{post.caption}</h4>
                     <span className="zoom-box" >
                         🔥{totalLikes}
                     </span>
-                    <ul>
-                        {post.comments.map(com => <li className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</li>)}
-                    </ul>
+                    <div>
+                        {post.comments.map(com => <p className="comment-text" key={com.id}>{`${com.get_name} : ${com.comment_text}`}</p>)}
+                    </div>
                     <div>
                         <input
                             className="create-big-input-field"

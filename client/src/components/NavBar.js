@@ -23,36 +23,38 @@ function NavBar({ user, setUser, setIsLoggedIn, isLoggedIn }) {
 
     return (
 
-        <div className="navbar">
 
+        <div className="navbar">
             <div className="nav-buttons">
-                <Link
-                    to="LoggedOut"
-                    onClick={handleLogout}
-                    className="nav-link"
-                > Log Out
-                </Link>
+                <div>{user.id ?
+                    <Link
+                        to="LoggedOut"
+                        onClick={handleLogout}
+                        className="nav-link"
+                    > Log Out
+                    </Link> : null}
+                </div>
                 <br></br>
-                <Link
+                <div>{user.id ? <Link
                     to="EditUser"
                     onClick={handleEdit}
                     className="nav-link"
                 > Edit Account
-                </Link>
+                </Link> : null}
+                </div>
             </div>
             <div className="title-div">
                 <h1 className="site-title">The Giving Page</h1>
-            </div>
-            <div className="nav-avatar">
-                <img
-                    className="avatar"
-                    src={user.user_image}
-                    alt={user.username}
-                />
-                <h3 className="avatar-name">{user.username}</h3>
-
-                <br></br>
-            </div>
+            </div> {user.id ?
+                <div className="nav-avatar">
+                    <img
+                        className="avatar"
+                        src={user.user_image}
+                        alt={user.username}
+                    />
+                    <h3 className="avatar-name">{user.username}</h3>
+                    <br></br>
+                </div> : null}
         </div >
     );
 }

@@ -6,6 +6,7 @@ function UserAd({ ad, user }) {
     function handleAdClick() {
         const postObj = { ad_id: ad.id, user_id: user.id };
         console.log(postObj)
+        alert("Now pretend you're on their website...")
 
         const configObject = {
             method: "POST",

@@ -43,6 +43,10 @@ class User < ApplicationRecord
         end
     end
 
+    def total_ad_clicks
+        self.ad_clicks.length
+    end
+
     # def does_logged_in_follow?
     #     self.followers.map do |follower|
     # end

@@ -91,12 +91,14 @@ function UserPage({ user }) {
         <div>
             <p className="create-acc-link"><Link to="/home">Back to Homepage</Link></p>
             <DisplayUserAds user={user} />
-            <h2>{userPageInfo.username}</h2>
-            <h4>{userPageInfo.bio}</h4>
-            <h5>
-                {alreadyFollow ? <button> You Follow {userPageInfo.username}</button>
-                    : <button onClick={handleFollow}>Follow {userPageInfo.username}</button>}
-            </h5>
+            <div className='center-stuff'>
+                <h2>{userPageInfo.username}</h2>
+                <h4>{userPageInfo.bio}</h4>
+                <h5>
+                    {alreadyFollow ? <button> You Follow {userPageInfo.username}</button>
+                        : <button onClick={handleFollow}>Follow {userPageInfo.username}</button>}
+                </h5>
+            </div>
             {/* <CreatePost userPageInfo={userPageInfo} /> */}
             <DisplayPosts user={user} userPageInfo={userPageInfo} />
             <DisplayUserAds user={user} userPageInfo={userPageInfo} />
