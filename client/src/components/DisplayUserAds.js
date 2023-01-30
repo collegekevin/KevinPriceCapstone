@@ -4,6 +4,7 @@ import UserAd from "./UserAd"
 function DisplayUserAds({ user }) {
 
     const [ads, setAds] = useState([])
+    // let shuffledAds = []
 
     useEffect(() => {
         fetch("/ads")
@@ -11,7 +12,11 @@ function DisplayUserAds({ user }) {
             .then((ads) => setAds(ads))
     }, [])
 
-    console.log(ads)
+    // shuffledAds = ads
+    // console.log(ads)
+
+    // shuffledAds = shuffledAds.sort(() => Math.random() - 0.5)
+    // console.log(shuffledAds)
 
     // function handleAdClick(ad) {
     //     const postObj = { ad_id: ad.id, user_id: user.id };
@@ -34,7 +39,7 @@ function DisplayUserAds({ user }) {
 
     return (
         <div>
-            <h3 className="ad-into">The companies below will donate MORE money to charity if you interact with them.</h3>
+            <h3 className="ad-intro">The companies below will donate MORE money to charity if you interact with them.</h3>
             <div className="ad-styling">
                 {ads.map(ad => <UserAd key={ad.id} ad={ad} user={user} />)}
             </div>

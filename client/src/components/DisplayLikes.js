@@ -21,4 +21,4 @@ function DisplayLikes({ post, user }) {
 }
 
 
-export default DisplayPosts
+export default DisplayLikes

@@ -6,6 +6,7 @@ function UserAd({ ad, user }) {
     function handleAdClick() {
         const postObj = { ad_id: ad.id, user_id: user.id };
         console.log(postObj)
+        alert("Now pretend you're on their website...")
 
         const configObject = {
             method: "POST",
@@ -24,10 +25,10 @@ function UserAd({ ad, user }) {
 
     return (
         <div className="ad-card" onClick={handleAdClick}>
-            <h3>{ad.company}</h3>
-            <p>{ad.ad_text}</p>
+            <h3 className="company-name">{ad.company}</h3>
+            <p className="center-stuff">{ad.ad_text}</p>
             <img className="ad-img" src={ad.ad_image} alt={ad.company} />
-            <p>Click the ad for details</p>
+            <p className="center-stuff">Click the ad for details</p>
         </div>
     )
 }

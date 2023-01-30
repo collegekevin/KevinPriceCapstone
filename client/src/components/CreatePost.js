@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Post from "./Post"
-import DisplayUserAds from "./DisplayAds";
+import DisplayUserAds from './DisplayUserAds'
 
 function CreatePost({ user }) {
 
@@ -57,7 +57,8 @@ function CreatePost({ user }) {
     }
 
     return (
-        <div className="post-input">
+        <div className="center-stuff">
+            <p className="homepage-return"> <Link to="/Home">Back to Homepage</Link></p>
             <form onSubmit={handlePostSubmit}>
                 <input
                     className="create-big-input-field"
@@ -68,6 +69,7 @@ function CreatePost({ user }) {
                     onChange={handleImageChange}
                     required
                 />
+                <br></br>
                 <input
                     className="create-big-input-field"
                     name="caption"
@@ -77,9 +79,10 @@ function CreatePost({ user }) {
                     onChange={handleCaptionChange}
                     required
                 />
+                <br></br>
                 <button className="button" type="submit">Create Post</button>
             </form>
-            <p> <Link to="/Home">Back to Homepage</Link></p>
+
             <DisplayUserAds user={user} />
         </div>
     );

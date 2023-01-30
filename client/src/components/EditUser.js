@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import DisplayUserAds from "./components/DisplayUserAds";
+import DisplayUserAds from "./DisplayUserAds";
 
 function EditUser({ user, setUser }) {
 

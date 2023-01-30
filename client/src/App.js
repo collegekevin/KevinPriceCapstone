@@ -1,18 +1,20 @@
 
 import { useState, useEffect } from "react"
 import { Route, Routes } from "react-router-dom"
-import Login from './Login'
-import CreateUser from './CreateUser.js'
-import Home from './Home'
-import NavBar from "./NavBar"
-import CreatePost from "./CreatePost"
-import UserPage from "./UserPage"
-import LoggedOut from "./LoggedOut"
-import EditUser from "./EditUser"
+import Login from './components/Login'
+import CreateUser from './components/CreateUser.js'
+import Home from './components/Home'
+import NavBar from "./components/NavBar"
+import CreatePost from "./components/CreatePost"
+import UserPage from "./components/UserPage"
+import LoggedOut from "./components/LoggedOut"
+import EditUser from "./components/EditUser"
+import DisplayUserPosts from "./components/DisplayUserPosts"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+
 
   useEffect(() => {
     fetch("/me").then((resp) => {
@@ -24,16 +26,21 @@ function App() {
 
   return (
     <div>
+      <div className="title-div">
+        <h1 className="real-site-title">The Giving Page</h1>
+      </div>
       <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       {/* {isLoggedIn ? <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} /> : console.log("Nobody's logged in")} */}
       <Routes>
         <Route exact path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/CreateUser" element={<CreateUser />} />
         <Route path='/home' element={<Home user={user} isLoggedIn={isLoggedIn} setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/YourPosts' element={<DisplayUserPosts user={user} />} />
         <Route path="/CreatePost" element={<CreatePost user={user} setUser={setUser} />} />
         <Route path="/users/:id" element={<UserPage user={user} setUser={setUser} />} />
         <Route path="LoggedOut" element={<LoggedOut user={user} setUser={setUser} />} />
         <Route path="EditUser" element={<EditUser user={user} setUser={setUser} />} />
+        {/* <Route path="EditPost" element={<EditPost user={user} setUser={setUser} />} /> */}
       </Routes>
     </div>
   );
