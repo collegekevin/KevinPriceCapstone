@@ -7,8 +7,8 @@ import DisplayFollows from "./DisplayFollows";
 
 function Home({ user, setUser, isLoggedIn, setIsLoggedIn }) {
 
-    console.log(isLoggedIn)
-    setIsLoggedIn(true)
+    // console.log(isLoggedIn)
+    // setIsLoggedIn(true)
     //const [posts, setPosts] = useState([])
     // setUser({})
     // console.log(user)

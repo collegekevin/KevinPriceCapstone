@@ -15,7 +15,6 @@ function UserPage({ user }) {
     console.log(`${user.username} is viewing ${id}'s page.`)
 
     useEffect(() => {
-        //GET to '/users/:id'
         fetch(`/users/${id}`)
             .then(res => {
                 if (res.ok) {
@@ -26,8 +25,6 @@ function UserPage({ user }) {
                 }
             })
     }, [id])
-
-    //console.log(userPageInfo.list_followers)
 
 
     if (userPageInfo.total_followers > 0) {
@@ -40,15 +37,8 @@ function UserPage({ user }) {
     }
 
 
-    // or I could have a method on the backend that checks if they follow.
-    //if () { alreadyFollow = true }
-
     function handleFollow() {
-        //So I need access to both the person whose page it is and the person whose account 
-        //I'm logged into.... and I'm havin issues with that. - Fixed it.
 
-
-        //So this is what I want, but at the moment, the users aren't lining up. I have to figure out why.
         const followObj = { follower_id: user.id, user_they_follow_id: userPageInfo.id };
         console.log(followObj)
 
@@ -69,30 +59,19 @@ function UserPage({ user }) {
                 console.log(createFollowReturn)
             });
 
-        // Do I have to go to a new component to send a message here
-
-        // return (
-        //     <p>You're now a follower</p>
-        // )
-
     }
-
-
-    //setChangeFollowButton(alreadyFollow)
-
-
-    // I don't want create post here. This is to look at somebody else's page. I want the
-    // option to follow this person.
-
-    //I'm going to want a ternary for the button that displays "Follow name" if unfollowed, but 
-    //switches to "You follow name" if followed... ideally
 
     return (
         <div>
             <p className="create-acc-link"><Link to="/home">Back to Homepage</Link></p>
             <DisplayUserAds user={user} />
             <div className='center-stuff'>
-                <h2>{userPageInfo.username}</h2>
+                <h2>{userPageInfo.first_name} {userPageInfo.last_name}</h2>
+                <img
+                    className="user-avatar"
+                    src={userPageInfo.user_image}
+                    alt={user.username}
+                />
                 <h4>{userPageInfo.bio}</h4>
                 <h5>
                     {alreadyFollow ? <button> You Follow {userPageInfo.username}</button>

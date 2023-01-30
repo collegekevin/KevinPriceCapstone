@@ -97,7 +97,7 @@ function Post({ post, user, userPageInfo }) {
                     <p >Post from <Link to={`/users/${post.user.id}`}>{post.user.username}</Link></p>
                     {/* <p onClick={handleUserClick}>From {post.user.username}</p> */}
                     <img src={post.post_image} alt={"Pic issue"} />
-                    <h4>{post.caption}</h4>
+                    <h4 className="post-captions">{post.caption}</h4>
                     <span className="zoom-box" onClick={handleLike}>
                         🔥{totalLikes}
                     </span>
