@@ -30,6 +30,8 @@ function LoggedOut({ user, setUser }) {
     // }, [])  
 
     console.log(userGoodbye.ads)
+    console.log(user.total_ad_clicks)
+    console.log(userGoodbye.total_ad_clicks)
 
     //I could put a ternary in the next bit and have it show the interactions if there were any and a 
     //seperate message saying if they interact it raises more money if there weren't any
@@ -37,7 +39,7 @@ function LoggedOut({ user, setUser }) {
     return (
         <div>
             <h2 className="ad-at-logout">Thanks for stopping by!</h2>
-            {!user.total_ad_clicks ? <div>
+            {user.total_ad_clicks ? <div>
                 <h2 className="ad-at-logout"> {user.username}, you interacted with ads for the following companies today:</h2>
                 <div>{user.ads.map(ad => <h1 className="ad-at-logout">{ad.company}</h1>)}</div>
                 <h2 className="ad-at-logout">If you ever want to buy something from them, do it from here</h2>
